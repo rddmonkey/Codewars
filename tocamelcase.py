@@ -1,19 +1,18 @@
 def to_camel_case(text):
     # your code here
-    testlist = []
-    word = ""
 
+    testlist = []
+    
+    word = ""
+    
     for i in range(len(text)):
-        if text[i] == "-" or text[i] == "_" or i == len(text):
-            testlist.append(word)
+        if i == 0:
+            word += text[i]
+            continue
+        if text[i] == "_" or text[i] == "-":
+            testlist.append(word.title())
             word = ""
         else:
-            if len(word) == 0 and i != 0:
-                word += text[i].capitalize()
-            else:
-                word += text[i]
-
-    if word != "":
-        testlist.append(word)
-
+            word += test[i]
+    
     return "".join(testlist)
