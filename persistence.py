@@ -1,25 +1,14 @@
 def persistence(n):
     # your code
+    ans = 0
 
-    nums = []
-    result = 1
+    while n >= 10:
+        ans += 1
+        n = str(n)
+        result = 1
 
-    if n < 10:
-        return n
+        for x in n:
+            result *=int(x)
+            n = result
 
-    while n > 10:
-        nums.append(n% 10)
-        n = n // 10
-
-    if len(nums) != 0:
-        nums.append(n)
-
-    for x in nums:
-        result *= x
-
-    if result < 10:
-        return n
-
-    if result > 10:
-        n = result
-        persistence(n)
+    return ans
