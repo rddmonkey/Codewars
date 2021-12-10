@@ -1,18 +1,23 @@
 def high_and_low(numbers):
-    listnum = []
 
     word = ""
+    low = float("inf")
+    high = float("-inf")
 
     for x in numbers:
         if x != " ":
             word += x
         if x == " ":
-            listnum.append(int(word))
+            word = int(word)
+            if word > high:
+                high = word
+            if word < low:
+                low = word
             word = ""
     if word != "":
-        listnum.append(int(word))
-
-    low = min(listnum)
-    high = max(listnum)
+        if int(word) > high:
+            high = word
+        if int(word) < low:
+            low = word
 
     return f"{str(high)} {str(low)}"
