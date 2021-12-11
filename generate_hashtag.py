@@ -5,17 +5,24 @@ def generate_hashtag(s):
         return False
 
     ans = ""
+    result = ""
 
     for i in range(len(s)):
         if s[i].isalpha():
+
             if ans == "":
-                ans += s[i].capitalize
+                letter = s[i]
+                ans += letter.capitalize()
             else:
-                ans += s[i]
+                ans += s[i].lower()
         if not s[i].isalpha():
+            result += ans
             ans = ""
-    
-    if ans[0] == "#":
-        return ans
+        if i == len(s) - 1 and ans:
+            result += ans
+
+    if result == True:
+        if result[0] == "#":
+            return result
     else:
-        return f"#{ans}"
+        return f"#{result}"
